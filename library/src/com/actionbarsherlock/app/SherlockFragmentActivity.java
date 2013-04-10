@@ -1,6 +1,7 @@
 package com.actionbarsherlock.app;
 
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Watson;
 import android.util.Log;
@@ -300,4 +301,16 @@ public class SherlockFragmentActivity extends Watson implements OnActionModeStar
     public void setSupportSecondaryProgress(int secondaryProgress) {
         getSherlock().setSecondaryProgress(secondaryProgress);
     }
+	
+	@Override
+	public boolean onKeyUp(int keyCode, KeyEvent event) {
+		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+	        if (event.getAction() == KeyEvent.ACTION_UP &&
+	            keyCode == KeyEvent.KEYCODE_MENU) {
+	            openOptionsMenu();
+	            return true;
+	        }
+	    }
+	    return super.onKeyUp(keyCode, event);
+	}
 }
