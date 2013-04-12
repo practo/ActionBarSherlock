@@ -58,7 +58,22 @@ public class SherlockListPlusFragment extends SherlockListFragment {
             mProgressContainer = root.findViewById(R.id.progressContainer);
             mListContainer = root.findViewById(R.id.listContainer);
             View rawListView = root.findViewById(android.R.id.list);
-            if (!(rawListView instanceof ListView)) {
+            if (rawListView == null) {
+                throw new RuntimeException(
+                        "Your content must have a ListView whose id attribute is "
+                                + "'android.R.id.list'");
+            }
+            else{
+            	try {
+                	@SuppressWarnings("unused")
+					ListView list = (ListView) rawListView;	
+				} catch (Exception e) {
+		               throw new RuntimeException(
+		                        "Content has view with id attribute 'android.R.id.list' "
+		                                + "that is not a ListView class");
+				}
+            }
+            /*if (!(rawListView instanceof ListView)) {
                 if (rawListView == null) {
                     throw new RuntimeException(
                             "Your content must have a ListView whose id attribute is "
@@ -67,7 +82,7 @@ public class SherlockListPlusFragment extends SherlockListFragment {
                 throw new RuntimeException(
                         "Content has view with id attribute 'android.R.id.list' "
                                 + "that is not a ListView class");
-            }
+            }*/
             mList = (ListView) rawListView;
             if (mEmptyView != null) {
                 mList.setEmptyView(mEmptyView);
@@ -191,6 +206,9 @@ public class SherlockListPlusFragment extends SherlockListFragment {
             mProgressContainer.setVisibility(View.GONE);
             mListContainer.setVisibility(View.VISIBLE);
         } else {
+        	if(null != mStandardEmptyView){
+        		mStandardEmptyView.setText("");
+        	}
             if (animate) {
                 mProgressContainer.startAnimation(AnimationUtils.loadAnimation(
                         getActivity(), android.R.anim.fade_in));

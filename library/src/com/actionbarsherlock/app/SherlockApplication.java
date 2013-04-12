@@ -12,7 +12,7 @@ public class SherlockApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		
-		// show overflow menu post-honeycomb devices with hard menu button
+		// show overflow menu post-honeycomb devices with menu button
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB){
 		    try {
 		        ViewConfiguration config = ViewConfiguration.get(this);
