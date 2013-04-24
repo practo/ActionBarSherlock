@@ -213,6 +213,8 @@
         <item name="android:minWidth">48dip</item>
     </style>
 
+    <style name="Widget.Sherlock.Light.Radio" parent="android:Widget.CompoundButton.RadioButton"/>
+
     <style name="Sherlock.__Widget.Holo.Spinner" parent="Widget">
         <item name="android:dropDownSelector">@drawable/abs__list_selector_holo_dark</item>
         <item name="android:popupBackground">@drawable/abs__menu_dropdown_panel_holo_dark</item>
