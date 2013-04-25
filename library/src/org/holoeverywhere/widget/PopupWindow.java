@@ -3,7 +3,6 @@ package org.holoeverywhere.widget;
 
 import java.lang.ref.WeakReference;
 
-import com.actionbarsherlock.R;
 import org.holoeverywhere.drawable.DrawableCompat;
 import org.holoeverywhere.drawable.StateListDrawable;
 
@@ -27,6 +26,8 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnScrollChangedListener;
 import android.view.WindowManager;
+
+import com.actionbarsherlock.R;
 
 public class PopupWindow {
     public interface OnDismissListener {

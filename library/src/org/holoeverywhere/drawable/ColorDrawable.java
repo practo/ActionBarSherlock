@@ -3,7 +3,6 @@ package org.holoeverywhere.drawable;
 
 import java.io.IOException;
 
-import com.actionbarsherlock.R;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -15,6 +14,8 @@ import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+
+import com.actionbarsherlock.R;
 
 public class ColorDrawable extends android.graphics.drawable.ColorDrawable {
     final static class ColorState extends ConstantState {

@@ -1,8 +1,6 @@
 
 package org.holoeverywhere.widget;
 
-import com.actionbarsherlock.R;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,6 +9,8 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.actionbarsherlock.R;
 
 public class LinearLayout extends android.widget.LinearLayout {
     public static final int SHOW_DIVIDER_ALL = 7;

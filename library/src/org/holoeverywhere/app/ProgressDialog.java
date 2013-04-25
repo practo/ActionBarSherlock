@@ -3,7 +3,6 @@ package org.holoeverywhere.app;
 
 import java.text.NumberFormat;
 
-import com.actionbarsherlock.R;
 import org.holoeverywhere.widget.ProgressBar;
 
 import android.content.Context;
@@ -17,6 +16,8 @@ import android.text.Spanned;
 import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.TextView;
+
+import com.actionbarsherlock.R;
 
 public class ProgressDialog extends AlertDialog {
     public static final int STYLE_HORIZONTAL = 1;

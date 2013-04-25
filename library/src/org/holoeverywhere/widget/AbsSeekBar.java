@@ -1,7 +1,6 @@
 
 package org.holoeverywhere.widget;
 
-import com.actionbarsherlock.R;
 import org.holoeverywhere.internal._View;
 
 import android.annotation.SuppressLint;
@@ -17,6 +16,8 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+
+import com.actionbarsherlock.R;
 
 public abstract class AbsSeekBar extends ProgressBar {
     private static final int NO_ALPHA = 0xFF;

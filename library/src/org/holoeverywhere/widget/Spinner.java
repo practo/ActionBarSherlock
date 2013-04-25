@@ -1,7 +1,6 @@
 
 package org.holoeverywhere.widget;
 
-import com.actionbarsherlock.R;
 import org.holoeverywhere.app.AlertDialog;
 
 import android.annotation.SuppressLint;
@@ -22,6 +21,8 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.SpinnerAdapter;
+
+import com.actionbarsherlock.R;
 
 public class Spinner extends AbsSpinner implements OnClickListener {
     private class DialogPopup implements SpinnerPopup,

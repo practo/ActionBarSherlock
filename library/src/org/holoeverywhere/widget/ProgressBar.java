@@ -3,7 +3,6 @@ package org.holoeverywhere.widget;
 
 import java.util.ArrayList;
 
-import com.actionbarsherlock.R;
 import org.holoeverywhere.drawable.DrawableCompat;
 import org.holoeverywhere.internal._View;
 import org.holoeverywhere.util.Pool;
@@ -45,6 +44,8 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
+
+import com.actionbarsherlock.R;
 
 public class ProgressBar extends android.widget.ProgressBar {
     private class AccessibilityEventSender implements Runnable {

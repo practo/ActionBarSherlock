@@ -4,7 +4,6 @@ package org.holoeverywhere.widget;
 import java.util.ArrayList;
 
 import org.holoeverywhere.LayoutInflater;
-import com.actionbarsherlock.R;
 import org.holoeverywhere.internal.NumberPickerEditText;
 
 import android.annotation.SuppressLint;
@@ -37,6 +36,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
+
+import com.actionbarsherlock.R;
 
 public class NumberPicker extends LinearLayout {
     class BeginSoftInputOnLongPressCommand implements Runnable {

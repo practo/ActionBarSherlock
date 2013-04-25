@@ -1,7 +1,6 @@
 
 package org.holoeverywhere.app;
 
-import com.actionbarsherlock.R;
 import org.holoeverywhere.internal.AlertController;
 import org.holoeverywhere.internal.AlertController.AlertDecorViewInstaller;
 import org.holoeverywhere.internal.AlertController.AlertParams;
@@ -20,6 +19,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
+
+import com.actionbarsherlock.R;
 
 public class AlertDialog extends Dialog implements DialogInterface,
         AlertDecorViewInstaller {

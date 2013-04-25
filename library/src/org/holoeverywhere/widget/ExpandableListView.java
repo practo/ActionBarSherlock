@@ -3,7 +3,6 @@ package org.holoeverywhere.widget;
 
 import java.util.ArrayList;
 
-import com.actionbarsherlock.R;
 import org.holoeverywhere.widget.ExpandableListConnector.PositionMetadata;
 
 import android.content.Context;
@@ -24,6 +23,8 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.ExpandableListAdapter;
 import android.widget.ListAdapter;
+
+import com.actionbarsherlock.R;
 
 public class ExpandableListView extends ListView {
     public static class ExpandableListContextMenuInfo implements ContextMenu.ContextMenuInfo {

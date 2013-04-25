@@ -5,7 +5,6 @@ import static android.view.View.MeasureSpec.AT_MOST;
 import static android.view.View.MeasureSpec.EXACTLY;
 
 import org.holoeverywhere.LayoutInflater;
-import com.actionbarsherlock.R;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -15,6 +14,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.actionbarsherlock.R;
 import com.actionbarsherlock.internal.view.menu.ContextMenuDecorView;
 
 public class WindowDecorView extends ContextMenuDecorView {

@@ -6,7 +6,6 @@ import java.util.WeakHashMap;
 
 import org.holoeverywhere.HoloEverywhere;
 import org.holoeverywhere.LayoutInflater;
-import com.actionbarsherlock.R;
 import org.holoeverywhere.internal.WindowDecorView;
 
 import android.content.Context;
@@ -17,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 
+import com.actionbarsherlock.R;
 import com.actionbarsherlock.internal.view.menu.ContextMenuDecorView.ContextMenuListenersProvider;
 import com.actionbarsherlock.internal.view.menu.ContextMenuItemWrapper;
 import com.actionbarsherlock.internal.view.menu.ContextMenuListener;

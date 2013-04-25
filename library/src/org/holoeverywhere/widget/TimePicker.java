@@ -7,7 +7,6 @@ import java.util.Locale;
 
 import org.holoeverywhere.FontLoader;
 import org.holoeverywhere.LayoutInflater;
-import com.actionbarsherlock.R;
 import org.holoeverywhere.internal.NumberPickerEditText;
 
 import android.annotation.SuppressLint;
@@ -25,6 +24,8 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
+
+import com.actionbarsherlock.R;
 
 public class TimePicker extends FrameLayout {
     public interface OnTimeChangedListener {

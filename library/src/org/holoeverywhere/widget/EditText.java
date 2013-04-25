@@ -1,14 +1,13 @@
 
 package org.holoeverywhere.widget;
 
-import com.actionbarsherlock.R;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build.VERSION;
 import android.util.AttributeSet;
 
+import com.actionbarsherlock.R;
 import com.actionbarsherlock.internal.view.menu.ContextMenuCallbackGetter;
 
 public class EditText extends android.widget.EditText implements ContextMenuCallbackGetter {

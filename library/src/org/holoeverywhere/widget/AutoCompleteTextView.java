@@ -3,7 +3,6 @@ package org.holoeverywhere.widget;
 
 import org.holoeverywhere.ArrayAdapter;
 import org.holoeverywhere.LayoutInflater;
-import com.actionbarsherlock.R;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -29,6 +28,8 @@ import android.widget.AdapterView;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ListAdapter;
+
+import com.actionbarsherlock.R;
 
 public class AutoCompleteTextView extends EditText implements
         Filter.FilterListener {

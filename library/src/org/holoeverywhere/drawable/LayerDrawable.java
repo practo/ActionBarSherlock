@@ -3,7 +3,6 @@ package org.holoeverywhere.drawable;
 
 import java.io.IOException;
 
-import com.actionbarsherlock.R;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -18,6 +17,8 @@ import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.actionbarsherlock.R;
 
 public class LayerDrawable extends Drawable implements Drawable.Callback {
     static class ChildDrawable {

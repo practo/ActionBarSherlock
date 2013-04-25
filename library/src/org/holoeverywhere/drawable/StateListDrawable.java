@@ -3,7 +3,6 @@ package org.holoeverywhere.drawable;
 
 import java.io.IOException;
 
-import com.actionbarsherlock.R;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -12,6 +11,8 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.StateSet;
+
+import com.actionbarsherlock.R;
 
 public class StateListDrawable extends DrawableContainer {
     static final class StateListState extends DrawableContainerState {

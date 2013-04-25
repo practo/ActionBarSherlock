@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.holoeverywhere.HoloEverywhere;
 import org.holoeverywhere.IHoloActivity.OnWindowFocusChangeListener;
-import com.actionbarsherlock.R;
 import org.holoeverywhere.app.Activity;
 import org.holoeverywhere.drawable.DrawableCompat;
 import org.holoeverywhere.util.LongSparseArray;
@@ -39,6 +38,7 @@ import android.widget.AdapterView;
 import android.widget.Checkable;
 import android.widget.ListAdapter;
 
+import com.actionbarsherlock.R;
 import com.actionbarsherlock.internal.view.menu.ContextMenuBuilder.ContextMenuInfoGetter;
 import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.Menu;

@@ -4,7 +4,6 @@ package org.holoeverywhere.app;
 import java.util.Calendar;
 
 import org.holoeverywhere.LayoutInflater;
-import com.actionbarsherlock.R;
 import org.holoeverywhere.widget.DatePicker;
 import org.holoeverywhere.widget.DatePicker.OnDateChangedListener;
 
@@ -14,6 +13,8 @@ import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.text.format.DateUtils;
 import android.view.View;
+
+import com.actionbarsherlock.R;
 
 public class DatePickerDialog extends AlertDialog implements OnClickListener,
         OnDateChangedListener {

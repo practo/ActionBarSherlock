@@ -8,7 +8,6 @@ import java.util.Locale;
 
 import org.holoeverywhere.FontLoader;
 import org.holoeverywhere.LayoutInflater;
-import com.actionbarsherlock.R;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -35,6 +34,8 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.BaseAdapter;
+
+import com.actionbarsherlock.R;
 
 public class CalendarView extends FrameLayout {
     public interface OnDateChangeListener {

@@ -2,7 +2,6 @@
 package org.holoeverywhere.widget;
 
 import org.holoeverywhere.ArrayAdapter;
-import com.actionbarsherlock.R;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -19,6 +18,8 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.SpinnerAdapter;
+
+import com.actionbarsherlock.R;
 
 public abstract class AbsSpinner extends AdapterView<SpinnerAdapter> {
     class RecycleBin {

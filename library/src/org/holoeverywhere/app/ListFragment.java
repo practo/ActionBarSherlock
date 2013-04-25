@@ -2,7 +2,6 @@
 package org.holoeverywhere.app;
 
 import org.holoeverywhere.LayoutInflater;
-import com.actionbarsherlock.R;
 import org.holoeverywhere.widget.ListView;
 
 import android.os.Bundle;
@@ -13,6 +12,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+
+import com.actionbarsherlock.R;
 
 public class ListFragment extends Fragment {
     private ListAdapter mAdapter;

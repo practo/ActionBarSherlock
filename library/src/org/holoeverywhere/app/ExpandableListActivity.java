@@ -1,13 +1,14 @@
 
 package org.holoeverywhere.app;
 
-import com.actionbarsherlock.R;
 import org.holoeverywhere.widget.ExpandableListView;
 
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnCreateContextMenuListener;
 import android.widget.ExpandableListAdapter;
+
+import com.actionbarsherlock.R;
 
 public abstract class ExpandableListActivity extends Activity implements
         OnCreateContextMenuListener, ExpandableListView.OnChildClickListener,

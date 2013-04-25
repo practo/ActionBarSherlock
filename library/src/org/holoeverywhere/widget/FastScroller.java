@@ -1,8 +1,6 @@
 
 package org.holoeverywhere.widget;
 
-import com.actionbarsherlock.R;
-
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -24,6 +22,8 @@ import android.widget.ExpandableListAdapter;
 import android.widget.ListAdapter;
 import android.widget.SectionIndexer;
 import android.widget.WrapperListAdapter;
+
+import com.actionbarsherlock.R;
 
 class FastScroller {
     public class ScrollFade implements Runnable {

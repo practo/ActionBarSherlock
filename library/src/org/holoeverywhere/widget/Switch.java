@@ -1,7 +1,6 @@
 
 package org.holoeverywhere.widget;
 
-import com.actionbarsherlock.R;
 import org.holoeverywhere.text.AllCapsTransformationMethod;
 import org.holoeverywhere.text.TransformationMethod;
 
@@ -27,6 +26,8 @@ import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.CompoundButton;
+
+import com.actionbarsherlock.R;
 
 public class Switch extends CompoundButton {
     private static final int[] CHECKED_STATE_SET = {

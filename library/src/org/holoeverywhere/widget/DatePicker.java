@@ -7,7 +7,6 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import org.holoeverywhere.LayoutInflater;
-import com.actionbarsherlock.R;
 import org.holoeverywhere.internal.NumberPickerEditText;
 import org.holoeverywhere.util.Arrays;
 
@@ -30,6 +29,8 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+
+import com.actionbarsherlock.R;
 
 public class DatePicker extends FrameLayout {
     private final class Callback implements NumberPicker.OnValueChangeListener,
