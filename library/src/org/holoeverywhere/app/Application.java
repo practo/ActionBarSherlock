@@ -20,12 +20,14 @@ import org.holoeverywhere.addon.IAddonBasicAttacher;
 import org.holoeverywhere.preference.PreferenceManagerHelper;
 import org.holoeverywhere.preference.SharedPreferences;
 
+import com.actionbarsherlock.app.SherlockApplication;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build.VERSION;
 import android.os.Bundle;
 
-public class Application extends android.app.Application implements
+public class Application extends SherlockApplication implements
         IHolo, SuperStartActivity, SuperSystemService, IAddonAttacher<IAddonApplication> {
     private static List<Class<? extends IAddon>> sInitialAddons;
     private static Application sLastInstance;
