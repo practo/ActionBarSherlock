@@ -36,6 +36,7 @@ public class SherlockListPlusFragment extends SherlockListFragment {
         }
     };
     private TextView mStandardEmptyView;
+    private TextView mLoadingView;
 
     private void ensureList() {
         if (mList != null) {
@@ -56,6 +57,7 @@ public class SherlockListPlusFragment extends SherlockListFragment {
                 mStandardEmptyView.setVisibility(View.GONE);
             }
             mProgressContainer = root.findViewById(R.id.progressContainer);
+            mLoadingView = (TextView) root.findViewById(R.id.loading);
             mListContainer = root.findViewById(R.id.listContainer);
             View rawListView = root.findViewById(android.R.id.list);
             if (rawListView == null) {
@@ -165,6 +167,16 @@ public class SherlockListPlusFragment extends SherlockListFragment {
         }
         mEmptyText = text;
     }
+    
+    private void setLoadingText(CharSequence text) {
+        ensureList();
+        if (mLoadingView == null) {
+/*            throw new IllegalStateException(
+                    "Can't be used with a custom content view");*/
+        	return;
+        }
+        mLoadingView.setText(text);
+    }
 
     public void setListAdapter(ListAdapter adapter) {
         boolean hadAdapter = mAdapter != null;
@@ -178,8 +190,14 @@ public class SherlockListPlusFragment extends SherlockListFragment {
             }
         }
     }
+    
+    public void setListShown(boolean shown, String loading) {
+    	setLoadingText(loading);
+        setListShown(shown, true);
+    }
 
     public void setListShown(boolean shown) {
+    	setLoadingText(getString(R.string.loading));
         setListShown(shown, true);
     }
 
