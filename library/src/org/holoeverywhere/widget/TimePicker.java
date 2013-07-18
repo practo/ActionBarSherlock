@@ -129,7 +129,7 @@ public class TimePicker extends FrameLayout {
                 R.styleable.TimePicker_layout, R.layout.time_picker_holo);
         attributesArray.recycle();
         LayoutInflater.inflate(mContext, layoutResourceId, this, true);
-        FontLoader.apply(this);
+        FontLoader.apply(this, FontLoader.HoloFont.ROBOTO_LIGHT);
         mHourSpinner = (NumberPicker) findViewById(R.id.hour);
         mHourSpinner
                 .setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {

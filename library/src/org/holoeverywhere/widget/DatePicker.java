@@ -372,7 +372,10 @@ public class DatePicker extends FrameLayout {
     }
 
     private void reorderSpinners() {
-        char[] order = DateFormat.getDateFormatOrder(getContext());
+        final char    DATE                   =    'd';
+        final char    MONTH                  =    'M';
+        final char    YEAR                   =    'y';
+        char[] order =  new char[] {DATE, MONTH, YEAR};//DateFormat.getDateFormatOrder(getContext());
         final int spinnerCount = order.length;
         for (int i = 0; i < spinnerCount; i++) {
             switch (order[i]) {

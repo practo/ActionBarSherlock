@@ -1,6 +1,8 @@
 
 package org.holoeverywhere.widget;
 
+import org.holoeverywhere.FontLoader;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -32,6 +34,7 @@ public class Button extends android.widget.Button {
         } else {
             allCaps = a.getBoolean(R.styleable.TextView_textAllCaps, false);
         }
+        FontLoader.apply(this, FontLoader.HoloFont.ROBOTO_LIGHT);
         CharSequence text = null;
         if (a.hasValue(R.styleable.TextView_android_text)) {
             text = a.getText(R.styleable.TextView_android_text);

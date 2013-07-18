@@ -33,6 +33,9 @@ public final class FontLoader {
         public static final HoloFont ROBOTO_REGULAR = new HoloFont(
                 R.raw.roboto_regular);
 
+        public static final HoloFont ROBOTO_LIGHT = new HoloFont(
+                R.raw.roboto_light, false);
+        
         public static HoloFont makeFont(int rawResourceId) {
             return new HoloFont(rawResourceId);
         }
@@ -65,6 +68,10 @@ public final class FontLoader {
             ignore = false;
         }
 
+        public int getFont(){
+        	return font;
+        }
+        
         public <T extends View> T apply(T view) {
             if (typeface != null) {
                 return FontLoader.apply(view, typeface);

@@ -66,7 +66,6 @@ public class SherlockActionBarToggle implements DrawerListener, PanelSlideListen
         Object setActionBarDescription(Object info, Activity activity, int contentDescRes);
     }
 
-
     private static class ActionBarDrawerToggleImplCompat implements ActionBarDrawerToggleImpl {
         @Override
         public Drawable getThemeUpIndicator(Activity activity) {
@@ -205,7 +204,7 @@ public class SherlockActionBarToggle implements DrawerListener, PanelSlideListen
 			return mSlidingPaneLayout.isOpen();
 			
 		case Drawer:
-			isViewOpen();
+			return mDrawerLayout.isDrawerOpen(GravityCompat.START);
 		}
 		return true;
     }
