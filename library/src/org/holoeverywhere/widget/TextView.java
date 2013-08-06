@@ -41,7 +41,7 @@ public class TextView extends android.widget.TextView implements FontStyleProvid
 
     private static Object[] parseFontStyle(TypedArray a) {
         boolean force = true;
-        int fontStyle = FontLoader.TEXT_STYLE_NORMAL;
+        int fontStyle = FontLoader.TEXT_STYLE_LIGHT;
         String fontFamily = null;
         TypedValue value = new TypedValue();
         a.getValue(R.styleable.TextAppearance_android_fontFamily, value);
@@ -56,7 +56,7 @@ public class TextView extends android.widget.TextView implements FontStyleProvid
             fontFamily = (String) z[1];
         }
         fontStyle |= a.getInt(R.styleable.TextAppearance_android_textStyle,
-                FontLoader.TEXT_STYLE_NORMAL);
+                FontLoader.TEXT_STYLE_LIGHT);
         return new Object[] {
                 force, fontStyle, fontFamily
         };
