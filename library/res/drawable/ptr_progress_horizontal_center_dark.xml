@@ -6,7 +6,7 @@
         android:drawable="@android:color/transparent"/>
     <item android:id="@android:id/secondaryProgress">
         <clip
-            android:drawable="@drawable/progress_secondary_holo"
+            android:drawable="@drawable/progress_secondary_holo_dark"
             android:gravity="center"
             android:scaleWidth="100%" />
     </item>

@@ -1,21 +1,19 @@
 package android.support.v4.app;
 
-import java.util.ArrayList;
-
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-
+import com.actionbarsherlock.ActionBarSherlock;
 import com.actionbarsherlock.ActionBarSherlock.OnCreatePanelMenuListener;
 import com.actionbarsherlock.ActionBarSherlock.OnMenuItemSelectedListener;
 import com.actionbarsherlock.ActionBarSherlock.OnPreparePanelListener;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import java.util.ArrayList;
 
 /** I'm in ur package. Stealing ur variables. */
 public abstract class Watson extends FragmentActivity implements OnCreatePanelMenuListener, OnPreparePanelListener, OnMenuItemSelectedListener {
-    private static final boolean DEBUG = false;
     private static final String TAG = "Watson";
 
     /** Fragment interface for menu creation callback. */
@@ -38,55 +36,10 @@ public abstract class Watson extends FragmentActivity implements OnCreatePanelMe
     // Sherlock menu handling
     ///////////////////////////////////////////////////////////////////////////
 
-    boolean performCreateOptionsMenu(Fragment f, Menu menu, MenuInflater inflater) {
-        boolean show = false;
-        if (!f.mHidden) {
-            if (f.mHasMenu && f.mMenuVisible) {
-                show = true;
-                ((OnCreateOptionsMenuListener)f).onCreateOptionsMenu(menu, inflater);
-            }
-            if (f.mChildFragmentManager != null) {
-                show |= dispatchCreateOptionsMenu(f.mChildFragmentManager.mAdded, menu, inflater);
-            }
-        }
-        return show;
-    }
-
-    public boolean dispatchCreateOptionsMenu(ArrayList<Fragment> mAdded, Menu menu, MenuInflater inflater) {
-        boolean show = false;
-        ArrayList<Fragment> newMenus = null;
-        if (mAdded != null) {
-            for (int i=0; i<mAdded.size(); i++) {
-                Fragment f = mAdded.get(i);
-                if (f != null) {
-                    if (performCreateOptionsMenu(f, menu, inflater)) {
-                        show = true;
-                        if (newMenus == null) {
-                            newMenus = new ArrayList<Fragment>();
-                        }
-                        newMenus.add(f);
-                    }
-                }
-            }
-        }
-
-        if (mCreatedMenus != null) {
-            for (int i=0; i<mCreatedMenus.size(); i++) {
-                Fragment f = mCreatedMenus.get(i);
-                if (newMenus == null || !newMenus.contains(f)) {
-                    f.onDestroyOptionsMenu();
-                }
-            }
-        }
-
-        mCreatedMenus = newMenus;
-
-        return show;
-    }
 
     @Override
     public boolean onCreatePanelMenu(int featureId, Menu menu) {
-        if (DEBUG) Log.d(TAG, "[onCreatePanelMenu] featureId: " + featureId + ", menu: " + menu);
+        if (ActionBarSherlock.DEBUG) Log.d(TAG, "[onCreatePanelMenu] featureId: " + featureId + ", menu: " + menu);
 
         if (featureId == Window.FEATURE_OPTIONS_PANEL) {
             boolean show = onCreateOptionsMenu(menu);
@@ -128,7 +81,7 @@ public abstract class Watson extends FragmentActivity implements OnCreatePanelMe
 
     @Override
     public boolean onPreparePanel(int featureId, View view, Menu menu) {
-        if (DEBUG) Log.d(TAG, "[onPreparePanel] featureId: " + featureId + ", view: " + view + " menu: " + menu);
+        if (ActionBarSherlock.DEBUG) Log.d(TAG, "[onPreparePanel] featureId: " + featureId + ", view: " + view + " menu: " + menu);
 
         if (featureId == Window.FEATURE_OPTIONS_PANEL && menu != null) {
             if (mOptionsMenuInvalidated) {
@@ -175,9 +128,55 @@ public abstract class Watson extends FragmentActivity implements OnCreatePanelMe
 
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        if (DEBUG) Log.d(TAG, "[onMenuItemSelected] featureId: " + featureId + ", item: " + item);
+        if (ActionBarSherlock.DEBUG) Log.d(TAG, "[onMenuItemSelected] featureId: " + featureId + ", item: " + item);
 
         return onOptionsItemSelected(item) || featureId == Window.FEATURE_OPTIONS_PANEL && dispatchOptionsItemSelected(mFragments.mAdded, item);
+    }
+
+    boolean performCreateOptionsMenu(Fragment f, Menu menu, MenuInflater inflater) {
+        boolean show = false;
+        if (!f.mHidden) {
+            if (f.mHasMenu && f.mMenuVisible) {
+                show = true;
+                ((OnCreateOptionsMenuListener)f).onCreateOptionsMenu(menu, inflater);
+            }
+            if (f.mChildFragmentManager != null) {
+                show |= dispatchCreateOptionsMenu(f.mChildFragmentManager.mAdded, menu, inflater);
+            }
+        }
+        return show;
+    }
+
+    public boolean dispatchCreateOptionsMenu(ArrayList<Fragment> mAdded, Menu menu, MenuInflater inflater) {
+        boolean show = false;
+        ArrayList<Fragment> newMenus = null;
+        if (mAdded != null) {
+            for (int i=0; i<mAdded.size(); i++) {
+                Fragment f = mAdded.get(i);
+                if (f != null) {
+                    if (performCreateOptionsMenu(f, menu, inflater)) {
+                        show = true;
+                        if (newMenus == null) {
+                            newMenus = new ArrayList<Fragment>();
+                        }
+                        newMenus.add(f);
+                    }
+                }
+            }
+        }
+
+        if (mCreatedMenus != null) {
+            for (int i=0; i<mCreatedMenus.size(); i++) {
+                Fragment f = mCreatedMenus.get(i);
+                if (newMenus == null || !newMenus.contains(f)) {
+                    f.onDestroyOptionsMenu();
+                }
+            }
+        }
+
+        mCreatedMenus = newMenus;
+
+        return show;
     }
 
     public abstract boolean onCreateOptionsMenu(Menu menu);
