@@ -135,6 +135,7 @@ public class SherlockActionBarToggle implements DrawerListener, PanelSlideListen
     private Object mSetIndicatorInfo;
     private final TYPE view_type;
     private enum TYPE {
+    	None,
     	Drawer,
     	Slider
     }
@@ -172,7 +173,7 @@ public class SherlockActionBarToggle implements DrawerListener, PanelSlideListen
         	mDrawerLayout = (DrawerLayout) layout;
         }
         else{
-        	view_type = null;
+        	view_type = TYPE.None;
         	mSlidingPaneLayout = null;
         	mDrawerLayout = null;
         }
@@ -270,7 +271,9 @@ public class SherlockActionBarToggle implements DrawerListener, PanelSlideListen
      */
     public void syncState() {
         if (isViewOpen()) {
-            mSlider.setOffset(1.f);
+        	if(view_type != TYPE.None){
+                mSlider.setOffset(1.f);
+        	}
         } else {
             mSlider.setOffset(0.f);
         }
