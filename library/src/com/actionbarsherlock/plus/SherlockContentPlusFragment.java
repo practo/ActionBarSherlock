@@ -27,6 +27,7 @@ public class SherlockContentPlusFragment extends SherlockFragment {
         }
     };
     private TextView mStandardEmptyView;
+	private View mContentView;
 
     private void ensureContent() {
         if (mContent != null) {
@@ -48,13 +49,13 @@ public class SherlockContentPlusFragment extends SherlockFragment {
             }
             mProgressContainer = root.findViewById(R.id.progressContainer);
             mContentContainer = root.findViewById(R.id.listContainer);
-            View rawContentView = root.findViewById(android.R.id.content);
-            if (rawContentView == null) {
+            mContentView = root.findViewById(android.R.id.content);
+            if (mContentView == null) {
                 throw new RuntimeException(
                         "Your content must have a FrameLayout whose id attribute is "
                                 + "'android.R.id.content'");
             }
-            mContent = (FrameLayout) rawContentView;
+            mContent = (FrameLayout) mContentView;
             if (mEmptyView != null) {
                 //mContent.setEmptyView(mEmptyView);
             } else if (mEmptyText != null) {
@@ -154,6 +155,36 @@ public class SherlockContentPlusFragment extends SherlockFragment {
             }
             mProgressContainer.setVisibility(View.VISIBLE);
             mContentContainer.setVisibility(View.GONE);
+        }
+    }
+    
+    public void setEmptyShown(boolean shown) {
+        ensureContent();
+        if (mProgressContainer == null) {
+            throw new IllegalStateException(
+                    "Can't be used with a custom content view");
+        }
+        if (mContentShown == shown) {
+            return;
+        }
+        mContentShown = shown;
+        if (shown) {
+        	if(null != mStandardEmptyView){
+                if (mEmptyText != null) {
+            		mStandardEmptyView.setText(mEmptyText);
+                }
+        	}
+            mProgressContainer.clearAnimation();
+            mContentContainer.clearAnimation();
+            mProgressContainer.setVisibility(View.GONE);
+            mContentContainer.setVisibility(View.VISIBLE);
+            mContentView.setVisibility(View.GONE);
+            mStandardEmptyView.setVisibility(View.VISIBLE);
+        } else {
+        	if(null != mStandardEmptyView){
+        		mStandardEmptyView.setText("");
+        	}
+            setContentShown(false);
         }
     }
 
