@@ -293,4 +293,49 @@ public class ActionMenuItemView extends LinearLayout
                     heightMeasureSpec);
         }
     }
+    
+    private class OnGestureListener extends android.view.GestureDetector.SimpleOnGestureListener {
+        boolean longPressed;
+
+        @Override
+        public boolean onDown(MotionEvent e) {
+            longPressed = false;
+            return true;
+        }
+
+        @Override
+        public boolean onSingleTapUp(MotionEvent e) {
+            setPressed(true);
+            performClick();
+            return true;
+        }
+
+        @Override
+        public void onLongPress(MotionEvent e) {
+            longPressed = true;
+        }
+    }
+
+    private android.view.GestureDetector mDetector;
+    private OnGestureListener mDetectorListener;
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+            if (mDetector == null) {
+                mDetectorListener = new OnGestureListener();
+                mDetector = new android.view.GestureDetector(getContext(), mDetectorListener);
+            }
+
+            if (ev.getAction() == MotionEvent.ACTION_UP) {
+                if (mDetectorListener.longPressed) {
+                    performLongClick();
+                }
+            }
+
+            return mDetector.onTouchEvent(ev);
+        }
+
+        return super.dispatchTouchEvent(ev);
+    }
 }

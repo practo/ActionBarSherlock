@@ -129,9 +129,12 @@ public class ShowcaseView extends RelativeLayout implements View.OnClickListener
             isRedundant = true;
             return;
         }
-        showcase = getContext().getResources().getDrawable(R.drawable.cling_bleached);
-        showcase.setColorFilter(mShowcaseColor, PorterDuff.Mode.MULTIPLY);
-
+        
+        if(null == showcase){
+	        showcase = getContext().getResources().getDrawable(R.drawable.cling_bleached);
+	        showcase.setColorFilter(mShowcaseColor, PorterDuff.Mode.MULTIPLY);
+        }
+        
         showcaseRadius = metricScale * INNER_CIRCLE_RADIUS;
         PorterDuffXfermode mBlender = new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY);
         setOnTouchListener(this);
