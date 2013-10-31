@@ -307,6 +307,7 @@ public class ActionMenuItemView extends LinearLayout
         public boolean onSingleTapUp(MotionEvent e) {
             setPressed(true);
             performClick();
+            setPressed(false);
             return true;
         }
 
