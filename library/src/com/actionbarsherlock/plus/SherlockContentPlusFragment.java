@@ -140,6 +140,7 @@ public class SherlockContentPlusFragment extends SherlockFragment {
             }
             mProgressContainer.setVisibility(View.GONE);
             mContentContainer.setVisibility(View.VISIBLE);
+            mContentView.setVisibility(View.VISIBLE);
         } else {
         	if(null != mStandardEmptyView){
         		mStandardEmptyView.setText("");
