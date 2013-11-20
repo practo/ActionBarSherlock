@@ -310,8 +310,7 @@ public class ShowcaseView extends RelativeLayout implements View.OnClickListener
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         } catch (NullPointerException npe) {
-            throw new RuntimeException("insertShowcaseViewWithType() must be called " +
-                    "after or during onCreateOptionsMenu() of the host Activity");
+        	npe.printStackTrace();
         }
     }
 
