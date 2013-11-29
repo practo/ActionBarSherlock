@@ -958,7 +958,7 @@ public class Gallery extends AbsSpinner implements GestureDetector.OnGestureList
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         
-/*        if (!mShouldCallbackDuringFling) {
+        if (!mShouldCallbackDuringFling) {
             // We want to suppress selection changes
             
             // Remove any future code to set mSuppressSelectionChanged = false
@@ -971,8 +971,7 @@ public class Gallery extends AbsSpinner implements GestureDetector.OnGestureList
         // Fling the gallery!
         mFlingRunnable.startUsingVelocity((int) -velocityX);
         
-        return true;*/
-    	return false;
+        return true;
     }
 
     @Override
@@ -1403,7 +1402,7 @@ public class Gallery extends AbsSpinner implements GestureDetector.OnGestureList
              */
             mScroller.forceFinished(true);
             
-            if (scrollIntoSlots) scrollIntoSlots();
+            if (scrollIntoSlots) scrollIntoSlots();  
         }
 
         @Override

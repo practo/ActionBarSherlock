@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="Gallery">
+        <attr name="gravityNew" format="integer" />
+        <attr name="animationDuration" format="integer" />
+        <attr name="unselectedAlphaNew" format="float" />
+        <attr name="spacing" format="dimension" />
+    </declare-styleable>
+
+    <attr name="GalleryStyle" format="reference" />
+
+    <declare-styleable name="AbsSpinner">
+        <attr name="entries" format="reference" />
+    </declare-styleable>
+
+    <attr name="AbsSpinnerStyle" format="reference" />
+
+</resources>
