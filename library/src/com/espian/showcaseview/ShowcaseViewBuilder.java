@@ -1,5 +1,7 @@
 package com.espian.showcaseview;
 
+import com.espian.showcaseview.ShowcaseView.ConfigOptions;
+
 import android.app.Activity;
 import android.view.View;
 
@@ -8,7 +10,7 @@ public class ShowcaseViewBuilder {
     private final ShowcaseView showcaseView;
 
     public ShowcaseViewBuilder(Activity activity) {
-        this.showcaseView = new ShowcaseView(activity);
+        this.showcaseView = new ShowcaseView(activity, new ConfigOptions());
     }
 
     public ShowcaseViewBuilder(ShowcaseView showcaseView) {

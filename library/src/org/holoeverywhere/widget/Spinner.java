@@ -542,7 +542,7 @@ public class Spinner extends AbsSpinner implements OnClickListener {
     }
 
     @Override
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         if (mPopup != null && mPopup.isShowing()) {
             mPopup.dismiss();
