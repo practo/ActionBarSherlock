@@ -51,6 +51,7 @@ public final class PullToRefreshListAttacher implements View.OnTouchListener {
     private static final int DEFAULT_ANIM_FOOTER_OUT = R.anim.slide_out_bottom;
     private static final float DEFAULT_REFRESH_SCROLL_DISTANCE = 0.5f;
     private static final int DEFAULT_HEADER_THEME = 0;
+    private static final int DEFAULT_PULL_TO_REFRESH_STRING = R.string.pull_to_refresh_pull_label;
     
     private static final boolean DEBUG = false;
     private static final String LOG_TAG = "PullToRefreshAttacher";
@@ -116,11 +117,13 @@ public final class PullToRefreshListAttacher implements View.OnTouchListener {
         mHeaderTransformer = options.headerTransformer != null
                 ? options.headerTransformer
                 : new DefaultHeaderTransformer();
+        mHeaderTransformer.onRefreshLabel(options.footerPullToRefreshString);
         
         // Footer Transformer
         mFooterTransformer = options.footerTransformer != null
                 ? options.footerTransformer
                 : new DefaultHeaderTransformer();
+        mFooterTransformer.onRefreshLabel(options.footerPullToRefreshString);
         
         // Create animations for use later
         mHeaderInAnimation = AnimationUtils.loadAnimation(activity, options.headerInAnimation);
@@ -720,6 +723,8 @@ public final class PullToRefreshListAttacher implements View.OnTouchListener {
         public int headerTheme = DEFAULT_HEADER_THEME;
         
         public int footerTheme = DEFAULT_HEADER_THEME;
+        
+        public int footerPullToRefreshString = DEFAULT_PULL_TO_REFRESH_STRING;
     }
     
     private class AnimationCallback implements Animation.AnimationListener {
@@ -752,12 +757,14 @@ public final class PullToRefreshListAttacher implements View.OnTouchListener {
         public TextView mHeaderTextView;
         public ProgressBar mHeaderProgressBar;
         private View mHeaderView;
+        int footerPullToRefreshString;
+        
         @Override
-        public void onViewCreated(View headerView) {
+        public void onViewCreated(View view) {
             // Get ProgressBar and TextView. Also set initial text on TextView
-            mHeaderProgressBar = (ProgressBar) headerView.findViewById(R.id.ptr_progress);
-            mHeaderTextView = (TextView) headerView.findViewById(R.id.ptr_text);
-            mHeaderView = headerView;
+            mHeaderProgressBar = (ProgressBar) view.findViewById(R.id.ptr_progress);
+            mHeaderTextView = (TextView) view.findViewById(R.id.ptr_text);
+            mHeaderView = view;
             // Call onReset to make sure that the View is consistent
             onReset();
         }
@@ -812,7 +819,7 @@ public final class PullToRefreshListAttacher implements View.OnTouchListener {
 
             // Reset Text View
             if (mHeaderTextView != null) {
-                mHeaderTextView.setText(R.string.pull_to_refresh_pull_label);
+				mHeaderTextView.setText(footerPullToRefreshString);
             }
         }
 
@@ -841,22 +848,55 @@ public final class PullToRefreshListAttacher implements View.OnTouchListener {
 		public void setTheme(Activity activity, int theme) {
 			final int mColorWhite = activity.getResources().getColor(android.R.color.white);
 			final int mColorBlack = activity.getResources().getColor(android.R.color.black);
-			final int mTextColor = theme == 0 ? mColorWhite : mColorBlack;
-			final int mTextBackgroundColor = theme == 0 ? mColorBlack : mColorWhite;
-			final int mProgressDrawable = theme == 0 
+			int mTextColor = theme == 0 ? mColorWhite : mColorBlack;
+			int mTextBackgroundColor = theme == 0 ? mColorBlack : mColorWhite;
+			int mProgressDrawable = theme == 0 
 					? R.drawable.ptr_progress_horizontal_center_dark 
 					: R.drawable.ptr_progress_horizontal_center_light;
-			final int mIndeterminateDrawable = R.drawable.ptr_progress_indeterminate_horizontal;
-			if (mHeaderTextView != null) {
-                mHeaderTextView.setHeight(PullToRefreshListAttacher.getActionBarHeight(activity));
-                mHeaderTextView.setBackgroundColor(mTextBackgroundColor);
-                mHeaderTextView.setTextColor(mTextColor);
-            }
-			
-            if (mHeaderProgressBar != null) {
-                mHeaderProgressBar.setProgressDrawable(activity.getResources().getDrawable(mProgressDrawable));
-                mHeaderProgressBar.setIndeterminateDrawable(activity.getResources().getDrawable(mIndeterminateDrawable));
-            }
+			int mIndeterminateDrawable = R.drawable.ptr_progress_indeterminate_horizontal;
+			switch (theme) {
+			case 0:
+				mTextColor = mColorWhite;
+				mTextBackgroundColor = mColorBlack;
+				mProgressDrawable = R.drawable.ptr_progress_horizontal_center_dark;
+
+				if (mHeaderTextView != null) {
+	                mHeaderTextView.setHeight(PullToRefreshListAttacher.getActionBarHeight(activity));
+	                mHeaderTextView.setBackgroundColor(mTextBackgroundColor);
+	                mHeaderTextView.setTextColor(mTextColor);
+	            }
+				
+	            if (mHeaderProgressBar != null) {
+	                mHeaderProgressBar.setProgressDrawable(activity.getResources().getDrawable(mProgressDrawable));
+	                mHeaderProgressBar.setIndeterminateDrawable(activity.getResources().getDrawable(mIndeterminateDrawable));
+	            }
+				break;
+			case 1:
+				mTextColor = mColorBlack;
+				mTextBackgroundColor = mColorWhite;
+				mProgressDrawable = R.drawable.ptr_progress_horizontal_center_light;
+
+				if (mHeaderTextView != null) {
+	                mHeaderTextView.setHeight(PullToRefreshListAttacher.getActionBarHeight(activity));
+	                mHeaderTextView.setBackgroundColor(mTextBackgroundColor);
+	                mHeaderTextView.setTextColor(mTextColor);
+	            }
+				
+	            if (mHeaderProgressBar != null) {
+	                mHeaderProgressBar.setProgressDrawable(activity.getResources().getDrawable(mProgressDrawable));
+	                mHeaderProgressBar.setIndeterminateDrawable(activity.getResources().getDrawable(mIndeterminateDrawable));
+	            }
+				break;
+
+			default:
+				break;
+			}
+
+		}
+
+		@Override
+		public void onRefreshLabel(int stringResId) {
+			footerPullToRefreshString = stringResId;
 		}
     }
 	

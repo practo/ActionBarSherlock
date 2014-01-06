@@ -463,6 +463,8 @@ public final class PullToRefreshAttacher implements View.OnTouchListener {
         public abstract void setTheme(Activity activity, int theme);
         
         public abstract void onHide();
+        
+        public abstract void onRefreshLabel(int stringResId);
     }
 
     /**
@@ -668,6 +670,12 @@ public final class PullToRefreshAttacher implements View.OnTouchListener {
 
 		@Override
 		public void onHide() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onRefreshLabel(int stringResId) {
 			// TODO Auto-generated method stub
 			
 		}
