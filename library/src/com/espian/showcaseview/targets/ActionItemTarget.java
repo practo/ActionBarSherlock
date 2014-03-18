@@ -22,7 +22,11 @@ public class ActionItemTarget implements Target {
     @Override
     public Point getPoint() {
         setUp();
-        return new ViewTarget(mActionBarWrapper.getActionItem(mItemId)).getPoint();
+        try {
+            return new ViewTarget(mActionBarWrapper.getActionItem(mItemId)).getPoint();
+		} catch (Exception e) {
+			return null;
+		}
     }
 
     protected void setUp() {
